@@ -1,0 +1,10 @@
+version: '3'
+services:
+    node:
+        image: 'node:10-alpine'
+        volumes:
+            - './:/js'
+        working_dir: '/js'
+        ports:
+            - '3000:3000'
+        command: 'npm install && npm start'
