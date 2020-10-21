@@ -11,7 +11,6 @@ function type_check_v1(val, type) {
 
 function type_check_v2(val, config) {
     if (typeof(config) != "object" || config instanceof Array || config == null) {
-        console.log("false 0");
         return false;
     }
 
@@ -38,4 +37,4 @@ function type_check_v2(val, config) {
     return true;
 }
 
-console.log(type_check_v2(2, {type: "number", enum: [1,2,3]}))
+//console.log(type_check_v2({a: "b"}, {type: "object", /*value: {a: "b"},*/ enum: [{a: "a"},{a: "c"}]}))
