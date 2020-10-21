@@ -93,7 +93,13 @@ function verlan(chaine) {
     return str;
 }
 
-//console.log(verlan("J'aime les pâtes"));
+function yoda(string) {
+    if (typeof string !== "string" && string !== "") return ""
+
+    return string.split(" ").reverse().join(" ")
+}
+
+//console.log(yoda("J'aime les pâtes"));
 //console.log(capitalize("ipsum DOLOR"));
 
 
