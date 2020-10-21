@@ -113,7 +113,7 @@ function prop_access(obj, path) {
     }
 }
 
-console.log(prop_access(prairie, "animal.gender"));*/
+console.log(prop_access(null, "animal.gender"));*/
 
 //console.log(leet("anacOnda"))
 //console.log(camelCase(""));
