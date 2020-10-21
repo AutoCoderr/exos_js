@@ -1,6 +1,6 @@
 function ucfirst(chaine) {
     if (typeof(chaine) != "string" || chaine === "") return "";
-    return chaine.charAt(0).toUpperCase()+chaine.slice(1);
+    return chaine.charAt(0).toUpperCase()+chaine.slice(1).toLowerCase();
 }
 
 function capitalize(chaine) {
@@ -23,7 +23,7 @@ function camelCase(chaine) {
     let str = "";
     let words = chaine.split(" ");
     for(let i=0;i<words.length;i++) {
-        str += i > 0 ? ucfirst(words[i]) : words[i];
+        str += ucfirst(words[i]);
     }
     return str;
 }
@@ -43,6 +43,7 @@ function snake_case(chaine) {
 }
 
 function leet(chaine) {
+    if (typeof(chaine) != "string" || chaine === "") return ""
     const toCrypt = {
         A: 4,
         E: 3,
@@ -60,7 +61,7 @@ function leet(chaine) {
 }
 
 function prop_access(obj, path) {
-    if (typeof(obj) != "object") return path;
+    if (typeof(obj) != "object" || obj == null) return path;
     if (typeof(path) != "string" || path === "") return obj;
     let pathSplitted = path.split(".");
     for (let elem of pathSplitted) {
@@ -72,6 +73,28 @@ function prop_access(obj, path) {
     return obj
 }
 
+function verlan(chaine) {
+    let words = chaine.split(" ");
+
+    let str = "";
+    for (let i=0;i<words.length;i++) {
+        if (i>0) {
+            str += " ";
+        }
+
+        let verlanWord = "";
+        for (let j=words[i].length-1;j>=0;j--) {
+            verlanWord += words[i].charAt(j);
+        }
+        str += verlanWord;
+    }
+
+    return str;
+}
+
+//console.log(verlan("J'aime les pâtes"));
+//console.log(capitalize("ipsum DOLOR"));
+
 
 /*let prairie = {
     animal : {
@@ -81,7 +104,7 @@ function prop_access(obj, path) {
     }
 }
 
-console.log(prop_access(prairie, "animal.type.name"));*/
+console.log(prop_access(prairie, "machin.fefe.name"));*/
 
 //console.log(leet("anacOnda"))
 //console.log(camelCase("j'AIME les spagetti"));
