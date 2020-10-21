@@ -89,7 +89,7 @@ function yoda(string) {
 }
 
 function prop_access(obj, path) {
-    /*if (typeof(obj) != "object" || obj == null) return path+" not exist";
+    if (typeof(obj) != "object" || obj == null) return path+" not exist";
     if (typeof(path) != "string" || path === "") return obj;
     let pathSplitted = path.split(".");
     for (let elem of pathSplitted) {
@@ -98,8 +98,7 @@ function prop_access(obj, path) {
         }
         obj = obj[elem]
     }
-    return obj*/
-    return "POMME DE TERRE"
+    return obj
 }
 
 //console.log(verlan({coucou: ""}));
