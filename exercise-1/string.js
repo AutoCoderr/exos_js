@@ -111,6 +111,8 @@ function mod(a,b) {
 
 function vig(chaine,code) {
 
+    if (typeof(chaine) != "string" || chaine === "" || typeof(code) != "string" || code === "") return "";
+
     const numByAlpha = {
         a: 0,
         b: 1,
@@ -137,8 +139,8 @@ function vig(chaine,code) {
         w: 22,
         x: 23,
         y: 24,
-        z: 25,
-        A: 26,
+        z: 25
+        /*A: 26,
         B: 27,
         C: 28,
         D: 29,
@@ -163,7 +165,8 @@ function vig(chaine,code) {
         W: 48,
         X: 49,
         Y: 50,
-        Z: 51
+        Z: 51,
+        " ": 52*/
     }
 
     let alphaByNum = {}
@@ -174,13 +177,16 @@ function vig(chaine,code) {
     let res = "";
     for (let i=0;i<chaine.length;i++) {
         let char = chaine[i];
-        let charNumber = numByAlpha[char];
-        let charCode = code[i%code.length];
-        let charCodeNumber = numByAlpha[charCode];
 
-        charNumber += charCodeNumber;
-        charNumber = mod(charNumber,Object.keys(numByAlpha).length);
-        char = alphaByNum[charNumber];
+        if (char !== " ") {
+            let charNumber = numByAlpha[char];
+            let charCode = code[i % code.length];
+            let charCodeNumber = numByAlpha[charCode];
+
+            charNumber += charCodeNumber;
+            charNumber %= Object.keys(numByAlpha).length;
+            char = alphaByNum[charNumber];
+        }
 
         res += char
     }
@@ -188,7 +194,7 @@ function vig(chaine,code) {
     return res;
 }
 //console.log(mod(-15,26));
-//console.log(vig("WIKIPEDIA", "crypto"));
+console.log(vig("wikipedia wesh", "crypto"));
 
 //console.log(verlan({coucou: ""}));
 //console.log(capitalize(" test"));
