@@ -21,6 +21,8 @@ function camelCase(chaine) {
     if (typeof(chaine) != "string" || chaine === "") return "";
 
     let str = "";
+    chaine = chaine.replace(/_/g, " ");
+    chaine = chaine.replace(/-/g, " ");
     let words = chaine.split(" ");
     for(let i=0;i<words.length;i++) {
         str += ucfirst(words[i].toLowerCase());
@@ -99,8 +101,8 @@ function yoda(string) {
     return string.split(" ").reverse().join(" ")
 }
 
-console.log(verlan({coucou: ""}));
-//console.log(capitalize("ipsum DOLOR"));
+//console.log(verlan({coucou: ""}));
+console.log(capitalize(" test"));
 
 
 /*let prairie = {
@@ -114,4 +116,4 @@ console.log(verlan({coucou: ""}));
 console.log(prop_access(prairie, "machin.fefe.name"));*/
 
 //console.log(leet("anacOnda"))
-console.log(camelCase(""));
+//console.log(camelCase(""));
