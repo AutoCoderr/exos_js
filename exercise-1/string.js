@@ -105,7 +105,7 @@ function prop_access(obj, path) {
 //console.log(capitalize(" test"));
 
 
-let prairie = {
+/*let prairie = {
     animal : {
         type: {
             name: "TOTO"
@@ -113,7 +113,7 @@ let prairie = {
     }
 }
 
-console.log(prop_access(prairie, "animal.gender"));
+console.log(prop_access(prairie, "animal.gender"));*/
 
 //console.log(leet("anacOnda"))
 //console.log(camelCase(""));
