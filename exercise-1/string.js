@@ -89,7 +89,7 @@ function yoda(string) {
 }
 
 function prop_access(obj, path) {
-    if (typeof(obj) != "object" || obj == null) return path+" not exist";
+    /*if (typeof(obj) != "object" || obj == null) return path+" not exist";
     if (typeof(path) != "string" || path === "") return obj;
     let pathSplitted = path.split(".");
     for (let elem of pathSplitted) {
@@ -98,7 +98,8 @@ function prop_access(obj, path) {
         }
         obj = obj[elem]
     }
-    return obj
+    return obj*/
+    return "POMME DE TERRE"
 }
 
 //console.log(verlan({coucou: ""}));
@@ -113,7 +114,7 @@ function prop_access(obj, path) {
     }
 }
 
-console.log(prop_access(null, "animal.gender"));*/
+console.log(prop_access(null, ""));*/
 
 //console.log(leet("anacOnda"))
 //console.log(camelCase(""));
