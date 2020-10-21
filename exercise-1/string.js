@@ -140,33 +140,6 @@ function vig(chaine,code) {
         x: 23,
         y: 24,
         z: 25
-        /*A: 26,
-        B: 27,
-        C: 28,
-        D: 29,
-        E: 30,
-        F: 31,
-        G: 32,
-        H: 33,
-        I: 34,
-        J: 35,
-        K: 36,
-        L: 37,
-        M: 38,
-        N: 39,
-        O: 40,
-        P: 41,
-        Q: 42,
-        R: 43,
-        S: 44,
-        T: 45,
-        U: 46,
-        V: 47,
-        W: 48,
-        X: 49,
-        Y: 50,
-        Z: 51,
-        " ": 52*/
     }
 
     let alphaByNum = {}
@@ -174,18 +147,21 @@ function vig(chaine,code) {
         alphaByNum[numByAlpha[alpha]] = alpha;
     }
 
+    let nbSpace = 0;
     let res = "";
     for (let i=0;i<chaine.length;i++) {
         let char = chaine[i];
 
         if (char !== " ") {
             let charNumber = numByAlpha[char];
-            let charCode = code[i % code.length];
+            let charCode = code[(i-nbSpace) % code.length];
             let charCodeNumber = numByAlpha[charCode];
 
             charNumber += charCodeNumber;
             charNumber %= Object.keys(numByAlpha).length;
             char = alphaByNum[charNumber];
+        } else {
+            nbSpace += 1;
         }
 
         res += char
@@ -194,7 +170,7 @@ function vig(chaine,code) {
     return res;
 }
 //console.log(mod(-15,26));
-console.log(vig("wikipedia wesh", "crypto"));
+//console.log(vig("une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test", "nawakdecheznawak"));
 
 //console.log(verlan({coucou: ""}));
 //console.log(capitalize(" test"));
