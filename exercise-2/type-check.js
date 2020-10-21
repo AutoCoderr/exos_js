@@ -37,4 +37,18 @@ function type_check_v2(val, config) {
     return true;
 }
 
+function type_check(arg, types) {
+    let isChecked = type_check_v2(arg, types);
+    // console.log({isChecked, types})
+    if(!types.properties) return isChecked;
+    for (const typeKey in types.properties) {
+        isChecked = type_check(
+            type_check_v1(arg, 'object') ? arg[typeKey] : arg
+            , types.properties[typeKey]
+        );
+        if (!isChecked) break
+    }
+    return isChecked
+}
+
 //console.log(type_check_v2({a: "b"}, {type: "object", /*value: {a: "b"},*/ enum: [{a: "a"},{a: "c"}]}))
