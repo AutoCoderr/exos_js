@@ -74,6 +74,7 @@ function prop_access(obj, path) {
 }
 
 function verlan(chaine) {
+    if (typeof(chaine) != "string" && chaine === "") return ""
     let words = chaine.split(" ");
 
     let str = "";
