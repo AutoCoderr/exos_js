@@ -12,7 +12,7 @@ function capitalize(chaine) {
         if (i > 0) {
             str += " ";
         }
-        str += chaine.charAt(0).toUpperCase()+chaine.slice(1).toLowerCase();
+        str += words[i].charAt(0).toUpperCase()+chaine.slice(1).toLowerCase();
     }
     return str;
 }
