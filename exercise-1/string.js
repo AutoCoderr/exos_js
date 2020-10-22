@@ -113,38 +113,16 @@ function vig(chaine,code) {
 
     if (typeof(chaine) != "string" || chaine === "" || typeof(code) != "string" || code === "") return "";
 
-    const numByAlpha = {
-        a: 0,
-        b: 1,
-        c: 2,
-        d: 3,
-        e: 4,
-        f: 5,
-        g: 6,
-        h: 7,
-        i: 8,
-        j: 9,
-        k: 10,
-        l: 11,
-        m: 12,
-        n: 13,
-        o: 14,
-        p: 15,
-        q: 16,
-        r: 17,
-        s: 18,
-        t: 19,
-        u: 20,
-        v: 21,
-        w: 22,
-        x: 23,
-        y: 24,
-        z: 25
-    }
+    chaine = chaine.toLowerCase();
 
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    let numByAlpha = {};
     let alphaByNum = {}
-    for (let alpha in numByAlpha) {
-        alphaByNum[numByAlpha[alpha]] = alpha;
+
+    for (let i=0;i<alphabet.length;i++) {
+        numByAlpha[alphabet.charAt(i)] = i;
+        alphaByNum[i] = alphabet.charAt(i);
     }
 
     let nbSpace = 0;
@@ -170,7 +148,7 @@ function vig(chaine,code) {
     return res;
 }
 //console.log(mod(-15,26));
-//console.log(vig("une phrase tres tres longue mais qui ne veut absolument rien dire car c est juste un test", "nawakdecheznawak"));
+//console.log(vig("antiConstiTutioNnellement", "foo"));
 
 //console.log(verlan({coucou: ""}));
 //console.log(capitalize(" test"));
