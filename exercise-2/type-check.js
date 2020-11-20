@@ -38,17 +38,25 @@ function type_check_v2(val, config) {
 }
 
 function type_check(arg, types) {
-    let isChecked = type_check_v2(arg, types);
-    // console.log({isChecked, types})
-    if(!types.properties) return isChecked;
-    for (const typeKey in types.properties) {
-        isChecked = type_check(
-            type_check_v1(arg, 'object') ? arg[typeKey] : arg
-            , types.properties[typeKey]
-        );
-        if (!isChecked) break
+    if(!type_check_v2(arg, types)) return false;
+    if(typeof(types.properties) == "object" && types.properties != null) {
+        for (const typeKey in types.properties) {
+            if (!type_check(
+                types.type === "object" ? arg[typeKey] : arg
+                , types.properties[typeKey]
+            )) return false;
+        }
     }
-    return isChecked
+    return true;
 }
-
+/*console.log(type_check({
+    prop1: 12,
+    prop2: "toto"
+},{
+    type: "object",
+    properties: {
+        prop1: {type: "number"},
+        prop2: {type: "string", enum: ["toto", "tata"]}
+    }
+}));*/
 //console.log(type_check_v2({a: "b"}, {type: "object", /*value: {a: "b"},*/ enum: [{a: "a"},{a: "c"}]}))

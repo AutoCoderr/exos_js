@@ -147,6 +147,18 @@ function vig(chaine,code) {
 
     return res;
 }
+
+module.exports = {
+    ucfirst,
+    capitalize,
+    camelCase,
+    snake_case,
+    leet,
+    verlan,
+    yoda,
+    vig,
+    prop_access
+}
 //console.log(mod(-15,26));
 //console.log(vig("antiConstiTutioNnellement", "foo"));
 
